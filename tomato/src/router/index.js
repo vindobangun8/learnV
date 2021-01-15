@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Detail from '../views/Detail.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,7 +11,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/',
+    path: '/detail/:resId',
     name: 'Detail',
     component: Detail
   },

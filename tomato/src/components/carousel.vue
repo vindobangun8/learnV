@@ -1,8 +1,6 @@
 <template>
- 
-
-      <div class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+  <div class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="@/assets/food1.jpg" class="d-block w-100" alt="...">
       
@@ -11,7 +9,8 @@
         <h1 style="text-align:center;">Tomato</h1>
         <h2>Finding your Favourite Restaurant</h2>
         <div>
-        <input placeholder="Cari restauran" style="width:100%;">
+        <input v-model="searchQuery" placeholder="find a restaurant" style="width:100%;">
+        <button v-on:click="$emit('getRestaurant',searchQuery)">Search</button>
         </div>
     </div>
   </div>
@@ -20,7 +19,12 @@
 
 <script>
 export default {
-    name:"Carousel"
+    name:"Carousel",
+    data:function(){
+      return{
+        searchQuery:null
+      }
+    }
 }
 </script>
 
