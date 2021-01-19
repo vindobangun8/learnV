@@ -1,19 +1,17 @@
 <template>
-  <div class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="@/assets/food1.jpg" class="d-block w-100" alt="...">
-      
-    </div>
-    <div class="centered">
-        <h1 style="text-align:center;">Tomato</h1>
-        <h2>Finding your Favourite Restaurant</h2>
-        <div>
-        <input v-model="searchQuery" placeholder="find a restaurant" style="width:100%;">
-        <button v-on:click="$emit('getRestaurant',searchQuery)">Search</button>
+  <div class="containerSearch" >
+      <img src="@/assets/food1.jpg" class="img-fluid" alt="..." style="width:100%; max-height:400px;" >
+      <div class="centered">
+        <div style="display:flex; flex-direction:row; justify-content:center;">
+          <img src="@/assets/tomato.png" style="width:50px; height:50px;">
+          <h1 style="text-align:center;">Tomato</h1>
         </div>
+        <h2>Finding your Favourite Restaurant</h2>
+        <div style="display:flex; flex-direction:row;">
+          <input v-model="searchQuery" placeholder="find a restaurant" style="width:100%;">
+          <button v-on:click="$emit('getRestaurant',searchQuery)" class="btn btn-outline-danger"  style="margin-left:10px;">Search</button>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -28,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .centered {
   position: absolute;
   top: 50%;
@@ -36,9 +34,9 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.carousel-item {
-  height: 50vh;
-  min-height: 350px;
+.containerSearch {
+  position: relative;
+  text-align: center;
+  color: white;
 }
 </style>

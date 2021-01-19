@@ -1,16 +1,10 @@
 <template>
-    <div style=" display:flex; justify-content:center">
-        <div class="container">
-            <div  :key='idx' v-for="(rest,idx) in restaurants">
-                <div class="card">
-                    <router-link tag="img" :src="rest.restaurant.featured_image" :to="{name:'Detail',params:{resId:rest.restaurant.R.res_id}}" style="width:100%; height:100px; cursor:pointer;">
-                    <!-- <img :src="rest.restaurant.featured_image" style="width:100%; height:100px;"/> -->
-                    </router-link>
-                    <div class="card-body">
-                        <h4><strong>{{rest.restaurant.name}}</strong></h4>
-                        <h6>{{rest.restaurant.location.locality}}</h6>
-                    </div>
-                </div>
+    <div class="container" >
+        <div class="card" @click="toDetail(rest.restaurant.R.res_id)" :key='idx' v-for="(rest,idx) in restaurants">
+            <img :src="rest.restaurant.featured_image" style="width:100%; height:100px;"/>
+            <div>
+                <h4><strong>{{rest.restaurant.name}}</strong></h4>
+                <h6>{{rest.restaurant.location.locality}}</h6>
             </div>
         </div>
     </div>
@@ -19,7 +13,12 @@
 <script>
 export default {
 name:'CardItem',
-props:['restaurants']
+props:['restaurants'],
+methods:{
+    toDetail(resId){
+        this.$router.push({name:'Detail',query:{resId:resId}})
+    }
+}
 }
 </script>
 
@@ -31,6 +30,7 @@ props:['restaurants']
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  cursor:pointer;
 }
 .container {
   margin-top: 20px;

@@ -7,8 +7,8 @@
 
 <script>
 // @ is an alias to /src
-import Carousel from '@/components/carousel.vue'
-import CardItem from '@/components/cardItem.vue'
+import Carousel from '@/components/Carousel.vue'
+import CardItem from '@/components/CardItem.vue'
 import axios from 'axios'
 
 export default {
