@@ -1,17 +1,20 @@
 <template>
-    <div>
-        <section v-if="this.restaurant" style="display:flex; justify-content:center;">
-            <img :src="this.restaurant.featured_image" style="width:50%;height:300px;"/>
+    <div v-if="restaurant">
+        <section  style="display:flex; justify-content:center;">
+            <img :src="restaurant.featured_image" style="width:50%;height:300px;"/>
         </section>
-        <section v-if="this.restaurant" style="display:flex; justify-content:center; ">
-            <section style="width:25%;" > 
-                <h1>{{this.restaurant.name}}</h1>
-                <h5>{{`${this.restaurant.establishment[0]} - ${this.restaurant.cuisines}`}}</h5>
-                <h6>{{`${this.restaurant.location.locality}`}}</h6>
-                <h6>{{`Open from ${this.restaurant.timings}`}}</h6>
+        <section  style="display:flex; justify-content:center; ">
+            <section style="width:25%; " > 
+                <h1>{{restaurant.name}}</h1>
+                <h5>{{`${restaurant.establishment[0]} - ${restaurant.cuisines}`}}</h5>
+                <h6>{{`${restaurant.location.locality}`}}</h6>
+                <h6>{{`Open from ${restaurant.timings}`}}</h6>
+                <router-link to="/" >
+                    <h6>Back To Home</h6>
+                </router-link>
             </section>
-            <section style="width:25%; margin-top:10px; display:flex; justify-content:flex-end;" > 
-                <h5>Rating: {{this.restaurant.user_rating.aggregate_rating}}</h5>
+            <section style="width:25%; margin-top:10px; display:flex; justify-content:flex-end; flex-wrap:wrap;" > 
+                <h5 >Rating: {{this.restaurant.user_rating.aggregate_rating}}</h5>
             </section>
             
         </section>
@@ -28,8 +31,8 @@ export default {
             restaurant:null
         }
     },
-    mounted(){
-        this.getRestaurantDetail(this.$route.query.resId)
+    created(){
+        this.getRestaurantDetail(this.$route.params.resId)
     },
     methods:{
         getRestaurantDetail(id){

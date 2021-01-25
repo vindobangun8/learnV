@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <Carousel v-on:getRestaurant = "getRestaurant"/>
+    <Banner v-on:getRestaurant = "getRestaurant"/> <!-- v-on:getRestaurant emit getRestaruant from Banner-->
     <CardItem :restaurants="list"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Carousel from '@/components/Carousel.vue'
+import Banner from '@/components/Banner.vue'
 import CardItem from '@/components/CardItem.vue'
 import axios from 'axios'
 
@@ -19,8 +19,8 @@ export default {
     }
   },
   components: {
-    Carousel,
-    CardItem
+    Banner,
+    CardItem,
   },
   created(){
     this.getRestaurant();
