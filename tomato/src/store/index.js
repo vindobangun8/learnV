@@ -4,10 +4,10 @@ import vuex from "vuex";
 vue.use(vuex);
 
 export const store= new vuex.Store({
-    state:{
+    state:{ // setting state
         favouriteRest:[]
     },
-    mutations:{
+    mutations:{ // changing state value
         addFavourite(state,payload){
             state.favouriteRest.push(payload);
         },
@@ -16,7 +16,7 @@ export const store= new vuex.Store({
             state.favouriteRest = payload;
         }
     },
-    actions:{
+    actions:{ // for calling mutations
         addFavourite({commit},restaurant){
             commit('addFavourite',restaurant)
         },

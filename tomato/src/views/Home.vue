@@ -13,19 +13,19 @@ import axios from 'axios'
 
 export default {
   name: 'Home',
-  data(){
+  data(){ // setting state/variable that needed to use 
     return{
       list:null
     }
   },
-  components: {
+  components: { // setting component 
     Banner,
     CardItem,
   },
-  created(){
+  created(){ // lifecycle Created
     this.getRestaurant();
   },
-  methods:{
+  methods:{ // method/function list
     getRestaurant(searchQuery =""){
       var query=""
       if(searchQuery != ""){
